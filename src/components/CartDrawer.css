@@ -1,0 +1,255 @@
+.drawer {
+  position: fixed;
+  inset: 0 0 0 auto;
+  width: min(440px, 100vw);
+  max-width: 100vw;
+  height: 100dvh;
+  max-height: 100dvh;
+  margin: 0;
+  background: var(--color-bg);
+  box-shadow: var(--shadow-layer);
+}
+
+.drawer[open] {
+  animation: drawer-in 220ms var(--ease);
+}
+
+@keyframes drawer-in {
+  from {
+    transform: translateX(24px);
+    opacity: 0;
+  }
+}
+
+.drawer__inner {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.drawer__head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-2) var(--space-2) var(--space-2) var(--space-5);
+  border-bottom: var(--line);
+  background: var(--color-bg);
+}
+
+.drawer__title {
+  font-size: var(--text-xl);
+}
+
+.drawer__units {
+  font-family: var(--font-ui);
+  font-size: var(--text-sm);
+  color: var(--color-text-2);
+}
+
+.drawer__state {
+  display: grid;
+  justify-items: start;
+  gap: var(--space-3);
+  padding: var(--space-6) var(--space-5);
+}
+
+.drawer__state-title {
+  font-family: var(--font-display);
+  font-size: var(--text-xl);
+}
+
+.drawer__state-text {
+  color: var(--color-text-2);
+  font-size: var(--text-sm);
+}
+
+.drawer__state-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}
+
+.drawer__body {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+}
+
+.drawer__items {
+  margin: 0;
+  padding: 0 var(--space-5);
+  list-style: none;
+}
+
+.line {
+  display: grid;
+  grid-template-columns: 72px minmax(0, 1fr);
+  gap: var(--space-3);
+  padding: var(--space-4) 0;
+  border-bottom: var(--line);
+}
+
+.line__img {
+  width: 72px;
+  height: 90px;
+  object-fit: cover;
+  background: var(--color-sunk);
+  border-radius: var(--radius-sm);
+}
+
+.line__info {
+  display: grid;
+  gap: 2px;
+  min-width: 0;
+}
+
+.line__name {
+  font-family: var(--font-display);
+  font-size: var(--text-base);
+  line-height: 1.25;
+}
+
+.line__variant,
+.line__unit {
+  font-size: var(--text-xs);
+  color: var(--color-text-2);
+}
+
+.line__row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--space-2);
+  margin-top: var(--space-1);
+}
+
+.line__total {
+  font-weight: 600;
+  font-size: var(--text-sm);
+}
+
+.line__saving {
+  font-size: var(--text-xs);
+  color: var(--color-saving);
+  font-weight: 500;
+}
+
+.line__remove {
+  justify-self: start;
+  min-height: 44px;
+  padding: 0;
+  border: 0;
+  background: none;
+  font-size: var(--text-xs);
+  color: var(--color-text-2);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.line__remove:hover {
+  color: var(--color-text);
+}
+
+.checkout {
+  display: grid;
+  gap: var(--space-4);
+  margin: 0;
+  padding: var(--space-5);
+  border: 0;
+}
+
+.checkout__legend {
+  padding: 0;
+  margin-bottom: var(--space-4);
+  font-family: var(--font-display);
+  font-size: var(--text-lg);
+}
+
+.segmented {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  border: var(--line-strong);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+
+.segmented__opt {
+  position: relative;
+  display: grid;
+  place-items: center;
+  min-height: 44px;
+  padding: 0 var(--space-2);
+  font-size: var(--text-sm);
+  text-align: center;
+  background: var(--color-surface);
+  transition: background var(--dur) var(--ease);
+}
+
+.segmented__opt + .segmented__opt {
+  border-left: var(--line-strong);
+}
+
+.segmented__opt input {
+  position: absolute;
+  opacity: 0;
+  inset: 0;
+  margin: 0;
+}
+
+.segmented__opt:hover {
+  background: var(--color-sunk);
+}
+
+.segmented__opt:has(input:checked) {
+  background: var(--color-accent);
+  color: var(--color-on-accent);
+}
+
+.segmented__opt:has(input:focus-visible) {
+  outline: 2px solid var(--color-text);
+  outline-offset: -4px;
+}
+
+.drawer__foot {
+  position: sticky;
+  bottom: 0;
+  margin-top: auto;
+  display: grid;
+  gap: var(--space-3);
+  padding: var(--space-4) var(--space-5) var(--space-5);
+  border-top: var(--line);
+  background: var(--color-bg);
+}
+
+.totals {
+  display: grid;
+  gap: var(--space-1);
+  margin: 0;
+  font-size: var(--text-sm);
+}
+
+.totals > div {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--space-3);
+}
+
+.totals dd {
+  margin: 0;
+}
+
+.totals__saving {
+  color: var(--color-saving);
+  font-weight: 500;
+}
+
+.totals__final {
+  padding-top: var(--space-2);
+  margin-top: var(--space-1);
+  border-top: var(--line);
+  font-size: var(--text-lg);
+  font-weight: 600;
+}

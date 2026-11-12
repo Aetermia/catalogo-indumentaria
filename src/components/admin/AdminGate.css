@@ -1,0 +1,76 @@
+.gate,
+.admin-shell {
+  min-height: 100dvh;
+  display: grid;
+  place-items: center;
+  padding: var(--space-6) var(--gutter);
+}
+
+.admin-shell {
+  align-content: center;
+  gap: var(--space-3);
+}
+
+.admin-shell__msg {
+  color: var(--color-text-2);
+}
+
+.gate__box {
+  width: min(400px, 100%);
+  display: grid;
+  gap: var(--space-5);
+}
+
+.gate__brand {
+  font-family: var(--font-display);
+  font-size: var(--text-xl);
+}
+
+.gate__title {
+  font-size: var(--text-2xl);
+  margin-top: calc(var(--space-4) * -1);
+}
+
+.gate__demo {
+  display: grid;
+  gap: var(--space-2);
+  justify-items: start;
+  padding: var(--space-4);
+  border: var(--line);
+  border-radius: var(--radius);
+  background: var(--color-surface);
+  font-size: var(--text-sm);
+  color: var(--color-text-2);
+}
+
+.gate__demo strong {
+  color: var(--color-text);
+}
+
+.gate__demo code {
+  padding: 1px 6px;
+  border: var(--line);
+  border-radius: var(--radius-sm);
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-family: inherit;
+}
+
+.gate__form {
+  display: grid;
+  gap: var(--space-4);
+}
+
+.gate__back {
+  justify-self: start;
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  font-size: var(--text-sm);
+  color: var(--color-text-2);
+  text-underline-offset: 3px;
+}
+
+.gate__back:hover {
+  color: var(--color-text);
+}

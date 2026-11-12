@@ -1,0 +1,25 @@
+/* Botón flotante en carbón, no en verde WhatsApp: el verde de la página es solo para ahorro. */
+.wa-fab {
+  position: fixed;
+  right: var(--gutter);
+  bottom: calc(var(--gutter) + env(safe-area-inset-bottom, 0px));
+  z-index: 15;
+  display: grid;
+  place-items: center;
+  width: 54px;
+  height: 54px;
+  border-radius: 50%;
+  background: var(--color-accent);
+  color: var(--color-on-accent);
+  border: 1px solid var(--color-accent);
+  box-shadow: 0 4px 14px rgba(20, 20, 20, 0.18);
+  transition: background var(--dur) var(--ease), transform var(--dur) var(--ease);
+}
+
+.wa-fab:hover {
+  background: #3a3a3a;
+}
+
+.wa-fab:active {
+  transform: scale(0.96);
+}

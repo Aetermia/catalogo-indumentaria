@@ -1,0 +1,145 @@
+.card {
+  display: block;
+  width: 100%;
+  padding: 0;
+  border: 0;
+  background: none;
+  text-align: left;
+}
+
+.card__media {
+  position: relative;
+  display: block;
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+  background: var(--color-sunk);
+  border-radius: var(--radius-sm);
+}
+
+.card__img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: opacity 260ms var(--ease);
+}
+
+.card__img--hover {
+  opacity: 0;
+}
+
+@media (hover: hover) {
+  .card:hover .card__img--hover,
+  .card:focus-visible .card__img--hover {
+    opacity: 1;
+  }
+}
+
+.card__noimg {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  font-size: var(--text-sm);
+  color: var(--color-text-2);
+}
+
+.card__badges {
+  position: absolute;
+  top: var(--space-2);
+  left: var(--space-2);
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-1);
+}
+
+/* Badge solo para ofertas reales: el verde es exclusivo del ahorro. */
+.badge {
+  display: inline-block;
+  padding: 3px 9px;
+  border-radius: var(--radius-pill);
+  background: var(--color-surface);
+  color: var(--color-saving);
+  font-size: var(--text-xs);
+  font-weight: 600;
+  line-height: 1.4;
+  font-variant-numeric: tabular-nums;
+}
+
+.card__body {
+  display: grid;
+  gap: var(--space-1);
+  padding-top: var(--space-3);
+}
+
+.card__meta {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--space-2);
+  font-size: var(--text-xs);
+  color: var(--color-text-2);
+}
+
+.card__meta span:last-child {
+  text-align: right;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.card__name {
+  font-family: var(--font-display);
+  font-size: 1.0625rem;
+  line-height: 1.25;
+}
+
+.card:hover .card__name {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-thickness: 1px;
+}
+
+.card:active .card__media {
+  opacity: 0.92;
+}
+
+.card__price {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0 var(--space-2);
+  font-size: var(--text-sm);
+}
+
+.card__from,
+.card__old {
+  color: var(--color-text-2);
+}
+
+.card__final {
+  font-weight: 600;
+}
+
+.card__sizes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  margin-top: var(--space-1);
+}
+
+.card__size {
+  min-width: 28px;
+  padding: 1px 5px;
+  border: var(--line);
+  border-radius: var(--radius-sm);
+  font-size: 0.6875rem;
+  text-align: center;
+  color: var(--color-text-2);
+}
+
+@media (max-width: 479px) {
+  .card__sizes {
+    display: none;
+  }
+}

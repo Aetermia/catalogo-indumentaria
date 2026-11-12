@@ -1,0 +1,111 @@
+.skip-link {
+  position: absolute;
+  left: var(--gutter);
+  top: -100px;
+  z-index: 100;
+  padding: var(--space-2) var(--space-4);
+  background: var(--color-accent);
+  color: var(--color-on-accent);
+  text-decoration: none;
+}
+
+.skip-link:focus {
+  top: 8px;
+}
+
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  background: var(--color-bg);
+  border-bottom: var(--line);
+}
+
+.header__inner {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  height: var(--header-h);
+}
+
+.header__brand {
+  font-family: var(--font-display);
+  font-size: 1.375rem;
+  text-decoration: none;
+  letter-spacing: -0.01em;
+  margin-right: auto;
+  padding: var(--space-2) 0;
+}
+
+.header__nav {
+  display: flex;
+  gap: var(--space-1);
+}
+
+.header__nav a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  padding: 0 var(--space-2);
+  font-size: var(--text-sm);
+  text-decoration: none;
+  color: var(--color-text-2);
+  transition: color var(--dur) var(--ease);
+}
+
+.header__nav a:hover {
+  color: var(--color-text);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.header__cart {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  min-height: 44px;
+  min-width: 44px;
+  padding: 0 var(--space-2);
+  border: 1px solid var(--color-border-strong);
+  border-radius: var(--radius-sm);
+  background: transparent;
+  font-size: var(--text-sm);
+  transition: border-color var(--dur) var(--ease), background var(--dur) var(--ease);
+}
+
+.header__cart:hover {
+  border-color: var(--color-text);
+  background: var(--color-surface);
+}
+
+.header__cart:active {
+  background: var(--color-sunk);
+}
+
+.header__count {
+  min-width: 1.25rem;
+  text-align: center;
+  font-weight: 600;
+}
+
+.header__cart-label {
+  display: none;
+}
+
+@media (max-width: 420px) {
+  .header__nav a:last-child {
+    display: none;
+  }
+}
+
+@media (min-width: 640px) {
+  .header__cart {
+    padding: 0 var(--space-3);
+  }
+  .header__cart-label {
+    display: inline;
+  }
+  .header__nav {
+    gap: var(--space-3);
+  }
+}
